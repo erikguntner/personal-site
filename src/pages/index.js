@@ -31,6 +31,15 @@ const IndexPage = ({ data }) => {
           image={data.imageReactProto}
         />
         <Section path={'swell'} title={'Swell'} image={data.imageSwell} />
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify="bot-field"
+        >
+          <input name="name" palceholder="Your name" type="text" />
+          <button>Send</button>
+        </form>
       </ContentWrapper>
     </Layout>
   )

@@ -37,7 +37,9 @@ const IndexPage = ({ data }) => {
           data-netlify="true"
           data-netlify="bot-field"
         >
-          <input name="name" palceholder="Your name" type="text" />
+          <input name="name" placeholder="Your name" type="text" />
+          <input name="email" placeholder="name@name.com" type="email" />
+          <textarea name="message" />
           <button>Send</button>
         </form>
       </ContentWrapper>

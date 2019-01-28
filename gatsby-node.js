@@ -12,7 +12,9 @@ exports.createPages = ({ actions }) => {
       path,
       component: projectLayout,
       // Send additional data to page from JSON (or query inside template)
-      context: {},
+      context: {
+        id: page.id,
+      },
     })
   })
 }

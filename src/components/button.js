@@ -12,9 +12,9 @@ const Button = styled.button`
 
 const button = ({ title, path }) => {
   return (
-    <Button>
-      <Link to={path}>{title}</Link>
-    </Button>
+    <Link to={path}>
+      <Button>{title}</Button>
+    </Link>
   )
 }
 

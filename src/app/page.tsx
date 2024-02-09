@@ -31,11 +31,11 @@ export default function Home() {
         </section>
         <section className={styles.section}>
           <h2>Projects</h2>
-          <p>
-            I’m currently working on a few projects. One of them is a
-            decentralized social network called Socialite. It’s built on
-            Ethereum and IPFS.
-          </p>
+          <ul>
+            <li>
+              <a href="/projects">Projects</a>
+            </li>
+          </ul>
         </section>
         <section className={styles.section}>
           <h2>What I use</h2>

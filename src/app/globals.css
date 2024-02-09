@@ -98,6 +98,7 @@ body {
 
 p {
   color: var(--secondary-text);
+  line-height: 1.6;
 }
 
 a {

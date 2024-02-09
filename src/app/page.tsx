@@ -2,140 +2,54 @@
 
 import React from "react";
 import styles from "./page.module.css";
-import { Footer } from "@/components/Footer";
+import { Cross1Icon } from "@radix-ui/react-icons";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <section className={styles.grid}>
+      <div className={styles.grid}>
         {Array(150)
           .fill(0)
           .map((_, i) => (
             <GridSquare key={i} />
           ))}
-        <div className={[styles.absolute_container].join(" ")}>
-          <div className={[styles.container, styles.position_header].join(" ")}>
-            <h1>Erik Guntner</h1>
-            <h4>Software Engineer</h4>
-          </div>
-        </div>
-      </section>
-      <section className={styles.container}>
-        <div className={styles.title_section}>
+      </div>
+      <div className={[styles.container, styles.pointer_events_none].join(" ")}>
+        <section className={styles.header_section}>
+          <h1>Erik Guntner</h1>
+          <h4>Software Engineer</h4>
+        </section>
+      </div>
+      <div className={styles.container}>
+        <section className={styles.section}>
           <h2>Today</h2>
           <p>
-            I currently work as a Full Stack Engineer at Hack for LA on the Home
-            Unite US team. I’m a tinkerer who likes to to build open source
-            software and work on civic tech.
+            I work as a Full Stack Engineer at Hack for LA on the Home Unite Us
+            team. I’m a tinkerer who likes to to build open source software and
+            work on civic tech.
           </p>
-        </div>
-        <div className={styles.row}>
-          <div>
-            <h3>Projects</h3>
-            <p>
-              I’m currently working on a few projects. One of them is a
-              decentralized social network called Socialite. It’s built on
-              Ethereum and IPFS.
-            </p>
-          </div>
-          <div>
-            <div>
-              <h3>What I use</h3>
-              <p>
-                I’m interested in web3, decentralized finance, and building
-                community. I’m also interested in building tools that help
-                developers.
-              </p>
-            </div>
-            <div>
-              <h3>Where</h3>
-              <p>
-                I’m interested in web3, decentralized finance, and building
-                community. I’m also interested in building tools that help
-                developers.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.container}>
-        <div className={styles.title_section}>
-          <h2>Today</h2>
+        </section>
+        <section className={styles.section}>
+          <h2>Projects</h2>
           <p>
-            I currently work as a Full Stack Engineer at Hack for LA on the Home
-            Unite US team. I’m a tinkerer who likes to to build open source
-            software and work on civic tech.
+            I’m currently working on a few projects. One of them is a
+            decentralized social network called Socialite. It’s built on
+            Ethereum and IPFS.
           </p>
-        </div>
-        <div className={styles.row}>
-          <div>
-            <h3>Projects</h3>
-            <p>
-              I’m currently working on a few projects. One of them is a
-              decentralized social network called Socialite. It’s built on
-              Ethereum and IPFS.
-            </p>
-          </div>
-          <div>
-            <div>
-              <h3>What I use</h3>
-              <p>
-                I’m interested in web3, decentralized finance, and building
-                community. I’m also interested in building tools that help
-                developers.
-              </p>
-            </div>
-            <div>
-              <h3>Where</h3>
-              <p>
-                I’m interested in web3, decentralized finance, and building
-                community. I’m also interested in building tools that help
-                developers.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.container}>
-        <div className={styles.title_section}>
-          <h2>Today</h2>
+        </section>
+        <section className={styles.section}>
+          <h2>What I use</h2>
           <p>
-            I currently work as a Full Stack Engineer at Hack for LA on the Home
-            Unite US team. I’m a tinkerer who likes to to build open source
-            software and work on civic tech.
+            I’m interested in web3, decentralized finance, and building
+            community. I’m also interested in building tools that help
+            developers.
           </p>
-        </div>
-        <div className={styles.row}>
-          <div>
-            <h3>Projects</h3>
-            <p>
-              I’m currently working on a few projects. One of them is a
-              decentralized social network called Socialite. It’s built on
-              Ethereum and IPFS.
-            </p>
-          </div>
-          <div>
-            <div>
-              <h3>What I use</h3>
-              <p>
-                I’m interested in web3, decentralized finance, and building
-                community. I’m also interested in building tools that help
-                developers.
-              </p>
-            </div>
-            <div>
-              <h3>Where</h3>
-              <p>
-                I’m interested in web3, decentralized finance, and building
-                community. I’m also interested in building tools that help
-                developers.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+        <section className={styles.section}>
+          <h2>Where</h2>
+          <div id="map" />
+        </section>
+      </div>
     </main>
   );
 }
@@ -148,7 +62,7 @@ const GridSquare = () => {
       <Cell />
       <Cell />
       <div className={styles.crosshair}>
-        <CrossHair />
+        <Cross1Icon color="#D9D9D9" />
       </div>
     </div>
   );
@@ -177,11 +91,11 @@ const Cell = () => {
   );
 };
 
-const CrossHair = () => {
+const CrossHair = ({ color = "#D9D9D9" }: { color?: string }) => {
   return (
     <svg
-      width="15"
-      height="15"
+      width={15}
+      height={15}
       viewBox="0 0 15 15"
       fill="none"
       color="#D9D9D9"

@@ -53,7 +53,7 @@ export default function Home() {
                     <h4>{project.title}</h4>
                     <p>{project.description}</p>
                   </div>
-                  <ExternalLinkIcon />
+                  <ExternalLinkIcon width="16" height="16" />
                 </a>
               </li>
             ))}

@@ -27,7 +27,7 @@ export const footerLinks = [
   },
   {
     label: "GitHub",
-    href: "",
+    href: "https://github.com/erikguntner",
     icon: <GitHubLogoIcon width="18" height="18" />,
   },
   {
@@ -37,19 +37,13 @@ export const footerLinks = [
   },
   {
     label: "LinkedIn",
-    href: "",
+    href: "https://www.linkedin.com/in/erikguntner/",
     icon: <LinkedInLogoIcon width="18" height="18" />,
   },
   {
     label: "Resume",
     href: "",
     icon: <FileTextIcon width="18" height="18" />,
-  },
-
-  {
-    label: "Email",
-    href: "",
-    icon: <EnvelopeClosedIcon width="18" height="18" />,
   },
 ];
 
@@ -64,8 +58,14 @@ export const Footer = () => {
       onMouseLeave={() => mouseX.set(Infinity)}
       className={styles.dock}
     >
-      {footerLinks.map(({ icon }, i) => (
-        <AppIcon mouseX={mouseX} key={i} icon={icon} />
+      {footerLinks.map(({ icon, label, href }, i) => (
+        <AppIcon
+          mouseX={mouseX}
+          key={i}
+          icon={icon}
+          label={label}
+          href={href}
+        />
       ))}
     </footer>
   );
@@ -74,9 +74,13 @@ export const Footer = () => {
 const AppIcon = ({
   mouseX,
   icon,
+  label,
+  href,
 }: {
   mouseX: MotionValue;
   icon: React.JSX.Element;
+  label: string;
+  href: string;
 }) => {
   const ref = React.useRef<HTMLAnchorElement>(null);
   let distance = useTransform(mouseX, (val) => {
@@ -95,10 +99,12 @@ const AppIcon = ({
 
   return (
     <Tooltip.Provider>
-      <Tooltip.Root>
+      <Tooltip.Root delayDuration={300}>
         <Tooltip.Trigger asChild>
           <motion.a
             ref={ref}
+            href={href}
+            target="_blank"
             style={{ width: size, height: size }}
             className={styles.link}
           >
@@ -107,7 +113,7 @@ const AppIcon = ({
         </Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Content className={styles.TooltipContent} sideOffset={5}>
-            Home
+            {label}
             <Tooltip.Arrow className={styles.TooltipArrow} />
           </Tooltip.Content>
         </Tooltip.Portal>

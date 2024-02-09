@@ -6,6 +6,7 @@
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: #fdfdfd;
+  padding-bottom: 80px;
 }
 
 .pointer_events_none {

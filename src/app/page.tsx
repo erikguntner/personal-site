@@ -59,17 +59,6 @@ export default function Home() {
             ))}
           </ul>
         </section>
-        <section className={styles.section}>
-          <h2>Where</h2>
-          <div>
-            <Image
-              src="/location.png"
-              height={500}
-              width={340}
-              alt="Picture of the author"
-            />
-          </div>
-        </section>
       </div>
     </main>
   );

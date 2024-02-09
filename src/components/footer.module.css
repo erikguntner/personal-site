@@ -1,0 +1,23 @@
+.dock {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #ffffff;
+  border: 1px solid #efefef;
+  gap: 12px;
+  border-radius: 16px;
+  height: 64px;
+  padding: 12px;
+  bottom: 8px;
+  width: auto;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%) translateY(32px);
+}
+
+.link {
+  background-color: aquamarine;
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
+}

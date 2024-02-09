@@ -1,8 +1,10 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import styles from "./page.module.css";
-import { Cross1Icon } from "@radix-ui/react-icons";
+import { Cross1Icon, ExternalLinkIcon } from "@radix-ui/react-icons";
+import { projects } from "./constants";
 
 export default function Home() {
   return (
@@ -24,30 +26,49 @@ export default function Home() {
         <section className={styles.section}>
           <h2>Today</h2>
           <p>
-            I work as a Full Stack Engineer at Hack for LA on the Home Unite Us
-            team. I’m a tinkerer who likes to to build open source software and
-            work on civic tech.
+            I&apos;m a Full Stack Engineer at Hack for LA on the Home Unite Us
+            team. I&apos;m a tinkerer who likes to to build open source software
+            and work on civic tech.
           </p>
-        </section>
-        <section className={styles.section}>
-          <h2>Projects</h2>
-          <ul>
-            <li>
-              <a href="/projects">Projects</a>
-            </li>
-          </ul>
         </section>
         <section className={styles.section}>
           <h2>What I use</h2>
           <p>
-            I’m interested in web3, decentralized finance, and building
-            community. I’m also interested in building tools that help
-            developers.
+            Right now you can find me hacking away primarily with React,
+            Typescript, Next.js, Python, Flask, PostgreSQL and in general
+            anything JavaScript, HTML and CSS related.
           </p>
         </section>
         <section className={styles.section}>
+          <h2>Projects</h2>
+          <ul className={styles.project_list}>
+            {projects.map((project, i) => (
+              <li key={i}>
+                <a
+                  className={styles.project}
+                  href={project.href}
+                  target="_blank"
+                >
+                  <div>
+                    <h4>{project.title}</h4>
+                    <p>{project.description}</p>
+                  </div>
+                  <ExternalLinkIcon />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+        <section className={styles.section}>
           <h2>Where</h2>
-          <div id="map" />
+          <div>
+            <Image
+              src="/location.png"
+              height={500}
+              width={340}
+              alt="Picture of the author"
+            />
+          </div>
         </section>
       </div>
     </main>

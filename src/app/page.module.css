@@ -94,13 +94,62 @@
   padding: 4rem 0;
 }
 
-/* TITLE SECTION */
+/* SECTION */
 
 .section {
   display: flex;
   flex-direction: column;
   gap: 24px;
   margin-bottom: 32px;
+  width: 100%;
+}
+
+/* PROJECT SECTION */
+
+.project_list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style-type: none;
+}
+
+.project {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  color: var(--primary-text);
+  transition: background-color 0.3s ease;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+}
+
+.project svg {
+  color: var(--primary-text);
+  transition: background-color 0.3s ease;
+}
+
+.project div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project div h4 {
+  font-weight: 600;
+}
+
+.project:hover {
+  background-color: aliceblue;
+  transition: background-color 0.3s ease;
+}
+
+.project:hover svg {
+  color: var(--primary-accent);
+  transition: background-color 0.3s ease;
 }
 
 /* WORK SECTION */

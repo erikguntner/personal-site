@@ -21,11 +21,6 @@ import styles from "./footer.module.css";
 
 export const footerLinks = [
   {
-    label: "Home",
-    href: "/",
-    icon: <HomeIcon width="18" height="18" />,
-  },
-  {
     label: "GitHub",
     href: "https://github.com/erikguntner",
     icon: <GitHubLogoIcon width="18" height="18" />,

@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  background-color: #ffffff;
-  border: 1px solid #efefef;
+  background-color: var(--footer-background);
+  border: 1px solid var(--grid-border);
   gap: 12px;
   border-radius: 16px;
   height: 64px;
@@ -19,7 +19,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--grid-border);
+  background-color: var(--link-background);
   height: 40px;
   width: 40px;
   border-radius: 50px;
@@ -36,11 +36,10 @@
   padding: 8px 10px;
   font-size: 12px;
   line-height: 1;
-  color: var(--violet-11);
-  background-color: white;
+  color: var(--secondary-text);
+  background-color: var(--footer-background);
   border: 1px solid var(--grid-border);
-  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
-    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  box-shadow: var(--tooltip-shadow);
   user-select: none;
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
@@ -60,7 +59,7 @@
 }
 
 .TooltipArrow {
-  fill: white;
+  fill: var(--footer-background);
 }
 
 @keyframes slideUpAndFade {

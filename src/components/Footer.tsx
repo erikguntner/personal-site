@@ -94,7 +94,7 @@ const AppIcon = ({
 
   return (
     <Tooltip.Provider>
-      <Tooltip.Root delayDuration={300}>
+      <Tooltip.Root delayDuration={200}>
         <Tooltip.Trigger asChild>
           <motion.a
             ref={ref}

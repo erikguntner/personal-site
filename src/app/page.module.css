@@ -5,7 +5,7 @@
   height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: #fdfdfd;
+  background-color: var(--background-color);
   padding-bottom: 80px;
 }
 
@@ -51,6 +51,15 @@
   display: grid;
   grid-template-columns: repeat(30, 1fr);
   grid-template-rows: auto;
+}
+
+.gradient {
+  position: absolute;
+  background: var(--grid-gradient);
+  width: 100%;
+  height: 120px;
+  bottom: 0;
+  pointer-events: none;
 }
 
 .square {
@@ -146,6 +155,12 @@
 .project:hover {
   background-color: aliceblue;
   transition: background-color 0.3s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  .project:hover {
+    background-color: #191917;
+  }
 }
 
 .project:hover svg {

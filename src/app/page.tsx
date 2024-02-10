@@ -15,6 +15,7 @@ export default function Home() {
           .map((_, i) => (
             <GridSquare key={i} />
           ))}
+        <div className={styles.gradient} />
       </div>
       <div className={[styles.container, styles.pointer_events_none].join(" ")}>
         <section className={styles.header_section}>
@@ -72,7 +73,7 @@ const GridSquare = () => {
       <Cell />
       <Cell />
       <div className={styles.crosshair}>
-        <Cross1Icon color="#D9D9D9" />
+        <Cross1Icon color="#646464" />
       </div>
     </div>
   );

@@ -62,6 +62,12 @@
   fill: var(--footer-background);
 }
 
+@media (prefers-color-scheme: dark) {
+  .TooltipArrow {
+    fill: none;
+  }
+}
+
 @keyframes slideUpAndFade {
   from {
     opacity: 0;

@@ -5,14 +5,14 @@
   background-color: var(--footer-background);
   border: 1px solid var(--grid-border);
   gap: 12px;
-  border-radius: 16px;
-  height: 64px;
-  padding: 12px;
+  border-radius: 20px;
+  height: 56px;
+  padding: 8px;
   bottom: 8px;
   width: auto;
   position: fixed;
   left: 50%;
-  transform: translate(-50%, -50%) translateY(32px);
+  transform: translate(-50%, -50%) translateY(28px);
 }
 
 .link {
@@ -22,7 +22,7 @@
   background-color: var(--link-background);
   height: 40px;
   width: 40px;
-  border-radius: 50px;
+  border-radius: var(--border-radius);
 }
 
 .button {

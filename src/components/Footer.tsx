@@ -107,7 +107,7 @@ const useLinkMotion = <T extends UseLinkMotionOptions>(mouseX: MotionValue) => {
   let widthSync = useTransform(distance, [-200, 0, 200], [40, 70, 40]);
   let size = useSpring(widthSync, { stiffness: 200, damping: 15, mass: 0.1 });
 
-  let svgWidthSync = useTransform(distance, [-200, 0, 200], [1, 1.5, 1]);
+  let svgWidthSync = useTransform(distance, [-200, 0, 200], [1, 1.75, 1]);
   let svgSize = useSpring(svgWidthSync, {
     stiffness: 200,
     damping: 15,

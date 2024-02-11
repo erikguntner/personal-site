@@ -114,6 +114,10 @@
   width: 100%;
 }
 
+.section h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
 /* PROJECT SECTION */
 
 .project_list {

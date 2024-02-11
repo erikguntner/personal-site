@@ -44,7 +44,7 @@ export const footerLinks = [
 ];
 
 export const Footer = () => {
-  const [theme, setTheme] = React.useState<"light" | "dark">(() => {
+  const [theme, setTheme] = React.useState<string>(() => {
     const theme = localStorage.getItem("theme") || "light";
     return theme;
   });
@@ -76,7 +76,7 @@ export const Footer = () => {
       className={styles.dock}
     >
       {footerLinks.map(({ icon, label, href }, i) => (
-        <AppIcon
+        <AppIconLink
           mouseX={mouseX}
           key={i}
           icon={icon}
@@ -85,29 +85,20 @@ export const Footer = () => {
         />
       ))}
       <div className={styles.divider} />
-      <ToolTip label="Change theme">
-        <button
-          onClick={handleToggleTheme}
-          className={styles.link}
-          style={{ border: "none" }}
-        >
-          <div>{theme === "dark" ? <MoonIcon /> : <SunIcon />}</div>
-        </button>
-      </ToolTip>
+      <AppIconButton
+        mouseX={mouseX}
+        label="Change theme"
+        handleClick={handleToggleTheme}
+        icon={theme === "dark" ? <MoonIcon /> : <SunIcon />}
+      />
     </footer>
   );
 };
 
-interface AppIconProps {
-  mouseX: MotionValue;
-  icon: React.JSX.Element;
-  label: string;
-  href: string;
-  type?: "a" | "button";
-}
+type UseLinkMotionOptions = HTMLAnchorElement | HTMLButtonElement;
 
-const AppIcon = ({ mouseX, icon, label, href, type = "a" }: AppIconProps) => {
-  const ref = React.useRef<HTMLAnchorElement>(null);
+const useLinkMotion = <T extends UseLinkMotionOptions>(mouseX: MotionValue) => {
+  const ref = React.useRef<T>(null);
   let distance = useTransform(mouseX, (val) => {
     let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
     return val - bounds.x - bounds.width / 2;
@@ -123,6 +114,19 @@ const AppIcon = ({ mouseX, icon, label, href, type = "a" }: AppIconProps) => {
     mass: 0.1,
   });
 
+  return { ref, size, svgSize };
+};
+
+interface AppIconLinkProps {
+  mouseX: MotionValue;
+  icon: React.JSX.Element;
+  label: string;
+  href: string;
+}
+
+const AppIconLink = ({ mouseX, icon, label, href }: AppIconLinkProps) => {
+  const { ref, size, svgSize } = useLinkMotion<HTMLAnchorElement>(mouseX);
+
   return (
     <ToolTip label={label}>
       <motion.a
@@ -134,6 +138,35 @@ const AppIcon = ({ mouseX, icon, label, href, type = "a" }: AppIconProps) => {
       >
         <motion.div style={{ scale: svgSize }}>{icon}</motion.div>
       </motion.a>
+    </ToolTip>
+  );
+};
+
+interface AppIconButtonProps {
+  mouseX: MotionValue;
+  icon: React.JSX.Element;
+  label: string;
+  handleClick: () => void;
+}
+
+const AppIconButton = ({
+  mouseX,
+  icon,
+  label,
+  handleClick,
+}: AppIconButtonProps) => {
+  const { ref, size, svgSize } = useLinkMotion<HTMLButtonElement>(mouseX);
+
+  return (
+    <ToolTip label={label}>
+      <motion.button
+        ref={ref}
+        onClick={handleClick}
+        style={{ width: size, height: size }}
+        className={[styles.link, styles.button].join(" ")}
+      >
+        <motion.div style={{ scale: svgSize }}>{icon}</motion.div>
+      </motion.button>
     </ToolTip>
   );
 };

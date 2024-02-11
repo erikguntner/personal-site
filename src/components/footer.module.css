@@ -25,6 +25,14 @@
   border-radius: 50px;
 }
 
+.button {
+  border: none;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
 .link svg {
   height: 18px;
   width: 18px;

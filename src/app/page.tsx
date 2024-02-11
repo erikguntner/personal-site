@@ -31,6 +31,11 @@ export default function Home() {
             team. I&apos;m a tinkerer who likes to to build open source software
             and work on civic tech.
           </p>
+
+          <p>Currently located:</p>
+          <figure className={styles.map}>
+            <Image src="/map.png" alt="Los Angeles" width={600} height={400} />
+          </figure>
         </section>
         <section className={styles.section}>
           <h2>What I use</h2>

@@ -153,14 +153,8 @@
 }
 
 .project:hover {
-  background-color: aliceblue;
+  background-color: var(--accent-light);
   transition: background-color 0.3s ease;
-}
-
-@media (prefers-color-scheme: dark) {
-  .project:hover {
-    background-color: #191917;
-  }
 }
 
 .project:hover svg {

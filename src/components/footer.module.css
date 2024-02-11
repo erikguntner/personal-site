@@ -31,9 +31,16 @@
   color: var(--secondary-text);
 }
 
+.divider {
+  height: 100%;
+  width: 2px;
+  background-color: var(--grid-border);
+  border-radius: 100%;
+}
+
 .TooltipContent {
   border-radius: 4px;
-  padding: 8px 10px;
+  padding: 6px 8px;
   font-size: 12px;
   line-height: 1;
   color: var(--secondary-text);
@@ -59,13 +66,7 @@
 }
 
 .TooltipArrow {
-  fill: var(--footer-background);
-}
-
-@media (prefers-color-scheme: dark) {
-  .TooltipArrow {
-    fill: none;
-  }
+  fill: var(--tooltip-arrow-fill);
 }
 
 @keyframes slideUpAndFade {

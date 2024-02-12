@@ -37,8 +37,8 @@ export default function Home() {
             <Image
               src="/map.png"
               alt="Los Angeles"
-              width={600}
-              height={400}
+              width={1280}
+              height={720}
               priority
             />
           </figure>

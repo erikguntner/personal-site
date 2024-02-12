@@ -64,8 +64,12 @@ export const Footer = () => {
 
   if (!mounted) return null;
 
+  // -50%, calc(-50% + 28px)
+
   return (
-    <footer
+    <motion.footer
+      initial={{ opacity: 0, x: "-50%", y: "calc(-20% + 28px)" }}
+      animate={{ opacity: 1, x: "-50%", y: "calc(-50% + 28px)" }}
       onMouseMove={(e) => {
         mouseX.set(e.pageX);
       }}
@@ -88,7 +92,7 @@ export const Footer = () => {
         handleClick={handleToggleTheme}
         icon={toggleIcon}
       />
-    </footer>
+    </motion.footer>
   );
 };
 
@@ -127,6 +131,8 @@ const AppIconLink = ({ mouseX, icon, label, href }: AppIconLinkProps) => {
   return (
     <ToolTip label={label}>
       <motion.a
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
         ref={ref}
         href={href}
         target="_blank"
@@ -157,6 +163,8 @@ const AppIconButton = ({
   return (
     <ToolTip label={label}>
       <motion.button
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
         ref={ref}
         onClick={handleClick}
         style={{ width: size, height: size }}

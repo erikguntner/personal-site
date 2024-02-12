@@ -131,6 +131,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   padding: 16px;
   border-radius: var(--border-radius);
   color: var(--primary-text);

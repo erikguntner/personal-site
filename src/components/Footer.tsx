@@ -19,6 +19,7 @@ import {
 } from "@radix-ui/react-icons";
 
 import styles from "./footer.module.css";
+import { useTheme } from "next-themes";
 
 export const footerLinks = [
   {
@@ -44,28 +45,24 @@ export const footerLinks = [
 ];
 
 export const Footer = () => {
-  const [theme, setTheme] = React.useState<string>(() => {
-    const theme = localStorage.getItem("theme") || "light";
-    return theme;
-  });
-
   let mouseX = useMotionValue(Infinity);
 
-  const handleToggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
+  const [mounted, setMounted] = React.useState(false);
+  const { theme, setTheme } = useTheme();
 
   React.useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.remove("light");
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      document.documentElement.classList.add("light");
-    }
+    setMounted(true);
+  }, []);
 
-    localStorage.setItem("theme", theme);
+  const handleToggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
+  const toggleIcon = React.useMemo(() => {
+    return theme === "dark" ? <MoonIcon /> : <SunIcon />;
   }, [theme]);
+
+  if (!mounted) return null;
 
   return (
     <footer
@@ -89,7 +86,7 @@ export const Footer = () => {
         mouseX={mouseX}
         label="Change theme"
         handleClick={handleToggleTheme}
-        icon={theme === "dark" ? <MoonIcon /> : <SunIcon />}
+        icon={toggleIcon}
       />
     </footer>
   );

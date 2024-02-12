@@ -1,6 +1,6 @@
 :root,
 :root.light {
-  --border-radius: 12px;
+  --border-radius: 16px;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
@@ -23,6 +23,18 @@
   --tooltip-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
     hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
   --tooltip-arrow-fill: #ffffff;
+
+  --primary-glow: conic-gradient(
+    from 180deg at 50% 50%,
+    #16aaffb2 0deg,
+    #0883ffc3 55deg,
+    #54d7ffc5 120deg,
+    #0073ffd7 160deg
+  );
+  --secondary-glow: radial-gradient(
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -46,7 +58,7 @@
   }
 } */
 
-:root.dark {
+[data-theme="dark"] {
   --grid-border: #f5f5f52e;
   --grid-gradient: linear-gradient(
     180deg,
@@ -64,6 +76,19 @@
   --tooltip-shadow: hsla(209, 100%, 90%, 0.35) 0px 10px 38px -10px,
     hsl(209, 100%, 90% / 20%) 0px 10px 20px -15px;
   --tooltip-arrow-fill: none;
+
+  --primary-glow: conic-gradient(
+    from 180deg at 50% 50%,
+    #16abff33 0deg,
+    #0885ff33 55deg,
+    #54d6ff33 120deg,
+    #0071ff33 160deg,
+    transparent 360deg
+  );
+  --secondary-glow: radial-gradient(
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
 }
 
 * {

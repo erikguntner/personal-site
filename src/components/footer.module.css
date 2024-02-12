@@ -5,7 +5,7 @@
   background-color: var(--footer-background);
   border: 1px solid var(--grid-border);
   gap: 12px;
-  border-radius: 20px;
+  border-radius: var(--border-radius);
   height: 56px;
   padding: 8px;
   bottom: 8px;
@@ -22,8 +22,30 @@
   background-color: var(--link-background);
   height: 40px;
   width: 40px;
-  border-radius: var(--border-radius);
+  border-radius: calc(var(--border-radius) - 8px);
 }
+
+/* .link::before {
+  background-color: #ffffff;
+  content: "";
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  z-index: -2;
+}
+
+.link::after {
+  content: "";
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  filter: blur(4px);
+}
+
+.link::after {
+  background: var(--primary-glow);
+  z-index: -1;
+} */
 
 .button {
   border: none;

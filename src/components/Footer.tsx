@@ -29,7 +29,7 @@ export const footerLinks = [
   },
   {
     label: "Email",
-    href: "",
+    href: "mailto:erikguntner@gmail.com",
     icon: <EnvelopeClosedIcon width="18" height="18" />,
   },
   {
@@ -39,7 +39,7 @@ export const footerLinks = [
   },
   {
     label: "Resume",
-    href: "",
+    href: "/Erik_Guntner_Software_Engineer_Resume.pdf",
     icon: <FileTextIcon width="18" height="18" />,
   },
 ];
@@ -63,8 +63,6 @@ export const Footer = () => {
   }, [theme]);
 
   if (!mounted) return null;
-
-  // -50%, calc(-50% + 28px)
 
   return (
     <motion.footer
@@ -99,6 +97,10 @@ export const Footer = () => {
 type UseLinkMotionOptions = HTMLAnchorElement | HTMLButtonElement;
 
 const useLinkMotion = <T extends UseLinkMotionOptions>(mouseX: MotionValue) => {
+  const isMobile = /iPhone|iPad|iPod|Android|webOS|Windows Phone/i.test(
+    navigator.userAgent
+  );
+
   const ref = React.useRef<T>(null);
   let distance = useTransform(mouseX, (val) => {
     let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
@@ -114,6 +116,10 @@ const useLinkMotion = <T extends UseLinkMotionOptions>(mouseX: MotionValue) => {
     damping: 15,
     mass: 0.1,
   });
+
+  if (isMobile) {
+    return { ref, size: "40px", svgSize: 1 };
+  }
 
   return { ref, size, svgSize };
 };

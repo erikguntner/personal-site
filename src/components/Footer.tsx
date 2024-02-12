@@ -131,8 +131,6 @@ const AppIconLink = ({ mouseX, icon, label, href }: AppIconLinkProps) => {
   return (
     <ToolTip label={label}>
       <motion.a
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
         ref={ref}
         href={href}
         target="_blank"
@@ -163,8 +161,6 @@ const AppIconButton = ({
   return (
     <ToolTip label={label}>
       <motion.button
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
         ref={ref}
         onClick={handleClick}
         style={{ width: size, height: size }}

@@ -7,6 +7,18 @@
   overflow-x: hidden;
   background-color: var(--background-color);
   padding-bottom: 80px;
+  filter: blur(0);
+  animation: blurIn 0.5s ease-in-out;
+}
+
+@keyframes blurIn {
+  from {
+    filter: blur(10px);
+  }
+
+  to {
+    filter: blur(0);
+  }
 }
 
 .pointer_events_none {

@@ -1,0 +1,102 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  width: 100vw;
+  padding: 16px;
+  background-color: #f9f9f8;
+}
+
+.store {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 650px;
+  padding: 8px;
+  border-radius: 48px;
+  border: 1px solid;
+  background-color: #ffffff;
+  border-color: #dad9d6;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.appList {
+  width: 400px;
+}
+
+.appList li {
+  height: "96px";
+}
+
+.app {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.appHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.image {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background-color: #0d74ce;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+.info p {
+  font-size: 14px;
+  color: #6e6e6e;
+}
+
+.button {
+  background-color: #f1f0ef;
+  padding: 6px 16px;
+  color: #0d74ce;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.footer {
+  width: 468px;
+}
+
+.footer p {
+  font-size: 14px;
+}

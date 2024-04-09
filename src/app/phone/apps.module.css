@@ -1,0 +1,36 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 24px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 24px;
+}
+
+.card {
+  position: absolute;
+  background-color: #d9d9d9;
+  border-radius: 16px;
+  /* position: absolute; */
+  background-size: cover;
+  scrollbar-width: none;
+}
+
+.cover {
+  width: 100%;
+  background-color: blueviolet;
+  display: flex;
+  align-items: flex-end;
+}
+
+.text {
+  padding: 16px;
+}

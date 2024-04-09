@@ -9,6 +9,7 @@ import {
 } from "@radix-ui/react-icons";
 
 import styles from "./phone.module.css";
+import { Apps } from "./Apps";
 
 interface pageProps {}
 
@@ -129,7 +130,7 @@ export default function Page({}: pageProps) {
             <div className={styles.row}>
               <motion.h3
                 style={{
-                  transformOrigin: "0 0",
+                  transformOrigin: "left",
                 }}
                 animate={{
                   opacity: selected === null ? 1 : 0,
@@ -223,6 +224,7 @@ export default function Page({}: pageProps) {
           </div>
         </div>
       </section>
+      <Apps />
     </main>
   );
 }

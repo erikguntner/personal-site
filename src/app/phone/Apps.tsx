@@ -3,6 +3,7 @@ import { motion, Variants } from "framer-motion";
 import phoneStyles from "./phone.module.css";
 import styles from "./apps.module.css";
 import { ST } from "next/dist/shared/lib/utils";
+import { clear } from "console";
 
 interface AppsProps {}
 
@@ -36,10 +37,8 @@ const cardVariants: Variants = {
     height: START_HEIGHT,
     transition: {
       type: "spring",
-      stiffness: 200,
-      damping: 20,
       ease: "easeInOut",
-      duration: 0.5,
+      duration: 0.7,
     },
     transitionEnd: {
       zIndex: 1,
@@ -54,10 +53,8 @@ const cardVariants: Variants = {
     zIndex: 3,
     transition: {
       type: "spring",
-      stiffness: 200,
-      damping: 20,
       ease: "easeInOut",
-      duration: 0.5,
+      duration: 0.7,
     },
     transitionEnd: {
       overflow: "scroll",
@@ -118,11 +115,14 @@ interface AppProps {
   ref: React.RefObject<HTMLDivElement>;
 }
 
+let timer;
+
 const App = React.forwardRef<HTMLDivElement, AppProps>(function App(
   { handleSetSelected, selected, card, index },
   ref
 ) {
   const cardRef = React.useRef<HTMLDivElement>(null);
+  const [isDisabled, setIsDisabled] = React.useState(false);
 
   const offset = useOffset({
     outerRef: ref,
@@ -131,10 +131,18 @@ const App = React.forwardRef<HTMLDivElement, AppProps>(function App(
   });
 
   const handleClick = () => {
+    if (isDisabled) return;
+
     if (cardRef.current && selected === index) {
       cardRef.current.scrollTo({ top: 0, behavior: "smooth" });
     }
+
     handleSetSelected(index);
+    setIsDisabled(true);
+
+    setTimeout(() => {
+      setIsDisabled(false);
+    }, 700);
   };
 
   return (
@@ -165,7 +173,13 @@ const App = React.forwardRef<HTMLDivElement, AppProps>(function App(
           <p>{card.desc}</p>
         </div>
       </motion.div>
-      <div style={{ width: END_WIDTH }} className={styles.text}>
+      <motion.div
+        style={{ width: END_WIDTH }}
+        className={styles.text}
+        animate={{
+          filter: selected === index ? "blur(0px)" : "blur(2px)",
+        }}
+      >
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
           dolore adipisci necessitatibus? Suscipit velit voluptas rerum
@@ -184,7 +198,7 @@ const App = React.forwardRef<HTMLDivElement, AppProps>(function App(
           quibusdam mollitia. Accusantium incidunt impedit ad quisquam,
           architecto repellendus provident accusamus quam hic quod!
         </p>
-      </div>
+      </motion.div>
     </motion.div>
   );
 });
@@ -214,7 +228,8 @@ const useOffset = ({ outerRef, innerRef, deps }: useOffset) => {
 
       setOffset(curreOffset);
     }
-  }, [setOffset, ...deps]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [innerRef, outerRef, setOffset, ...deps]);
 
   return offset;
 };

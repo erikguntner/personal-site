@@ -60,9 +60,10 @@ const cardVariants: Variants = {
 export default function Page({}: pageProps) {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [selected, setSelected] = React.useState<number | null>(null);
+  const [isDisabled, setIsDisabled] = React.useState(false);
 
   const handleSetSelected = (index: number) => {
-    if (index !== selected && selected !== null) {
+    if ((index !== selected && selected !== null) || isDisabled) {
       return;
     }
 
@@ -71,6 +72,12 @@ export default function Page({}: pageProps) {
     } else {
       setSelected(index);
     }
+
+    setIsDisabled(true);
+
+    setTimeout(() => {
+      setIsDisabled(false);
+    }, 700);
   };
 
   return (

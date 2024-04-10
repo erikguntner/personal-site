@@ -2,8 +2,6 @@ import React from "react";
 import { motion, Variants } from "framer-motion";
 import phoneStyles from "./phone.module.css";
 import styles from "./apps.module.css";
-import { ST } from "next/dist/shared/lib/utils";
-import { clear } from "console";
 
 interface AppsProps {}
 
@@ -175,7 +173,7 @@ const App = React.forwardRef<HTMLDivElement, AppProps>(function App(
       </motion.div>
       <motion.div
         style={{ width: END_WIDTH }}
-        className={styles.text}
+        className={styles.content}
         animate={{
           filter: selected === index ? "blur(0px)" : "blur(2px)",
         }}

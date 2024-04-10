@@ -5,7 +5,7 @@
   height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: var(--background-color);
+  background-color: var(--gray-1);
   padding-bottom: 80px;
   filter: blur(0);
   animation: blurIn 0.5s ease-in-out;
@@ -43,18 +43,18 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  color: var(--primary-text);
+  color: var(--gray-12);
   pointer-events: none;
 }
 
 .header_section h1 {
   font-size: 72px;
-  color: var(--primary-text);
+  color: var(--gray-12);
 }
 
 .header_section h4 {
   font-size: 32px;
-  color: var(--primary-accent);
+  color: var(--blue-9);
 }
 
 .grid {
@@ -80,8 +80,8 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  border-right: 1px solid var(--grid-border);
-  border-top: 1px solid var(--grid-border);
+  border-right: 1px solid var(--gray-6);
+  border-top: 1px solid var(--gray-6);
 }
 
 .cell {
@@ -146,7 +146,7 @@
   gap: 16px;
   padding: 16px;
   border-radius: var(--border-radius);
-  color: var(--primary-text);
+  color: var(--gray-12);
   transition: background-color 0.3s ease;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -155,7 +155,7 @@
 }
 
 .project svg {
-  color: var(--primary-text);
+  color: var(--gray-12);
   transition: background-color 0.3s ease;
 }
 
@@ -170,12 +170,12 @@
 }
 
 .project:hover {
-  background-color: var(--accent-light);
+  background-color: var(--blue-2);
   transition: background-color 0.3s ease;
 }
 
 .project:hover svg {
-  color: var(--primary-accent);
+  color: var(--blue-9);
   transition: background-color 0.3s ease;
 }
 

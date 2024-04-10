@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  background-color: var(--footer-background);
-  border: 1px solid var(--grid-border);
+  background-color: var(--gray-1);
+  border: 1px solid var(--gray-6);
   gap: 12px;
   border-radius: var(--border-radius);
   height: 56px;
@@ -13,13 +13,14 @@
   position: fixed;
   left: 50%;
   transform: translate(-50%, calc(-50% + 28px));
+  z-index: 100;
 }
 
 .link {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--link-background);
+  background-color: var(--gray-3);
   height: 40px;
   width: 40px;
   border-radius: calc(var(--border-radius) - 8px);
@@ -58,13 +59,13 @@
 .link svg {
   height: 18px;
   width: 18px;
-  color: var(--secondary-text);
+  color: var(--gray-11);
 }
 
 .divider {
   height: 100%;
   width: 2px;
-  background-color: var(--grid-border);
+  background-color: var(--gray-6);
   border-radius: 100%;
 }
 
@@ -73,9 +74,9 @@
   padding: 6px 8px;
   font-size: 12px;
   line-height: 1;
-  color: var(--secondary-text);
-  background-color: var(--footer-background);
-  border: 1px solid var(--grid-border);
+  color: var(--gray-11);
+  background-color: var(--gray-1);
+  border: 1px solid var(--gray-6);
   box-shadow: var(--tooltip-shadow);
   user-select: none;
   animation-duration: 400ms;

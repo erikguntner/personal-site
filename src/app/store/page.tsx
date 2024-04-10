@@ -28,7 +28,8 @@ const cardVariants: Variants = {
     x: 0,
     width: START_WIDTH,
     height: START_HEIGHT,
-    backgroundColor: "#ffffff00",
+    border: "1px solid transparent",
+    backgroundColor: "var(--gray-2)",
     transition: {
       type: "spring",
       stiffness: 200,
@@ -46,7 +47,8 @@ const cardVariants: Variants = {
     width: END_WIDTH,
     height: END_HEIGHT,
     zIndex: 3,
-    backgroundColor: "#ffffff",
+    border: "1px solid var(--gray-6)",
+    backgroundColor: "var(--gray-1)",
     transition: {
       type: "spring",
       stiffness: 200,
@@ -77,7 +79,7 @@ export default function Page({}: pageProps) {
 
     setTimeout(() => {
       setIsDisabled(false);
-    }, 700);
+    }, 500);
   };
 
   return (
@@ -85,15 +87,18 @@ export default function Page({}: pageProps) {
       <motion.section ref={containerRef} className={styles.store}>
         <motion.div
           onClick={() => {
+            if (isDisabled) return;
             setSelected(null);
           }}
           className={styles.overlay}
-          style={{ pointerEvents: selected === null ? "none" : "auto" }}
-          animate={{
-            backgroundColor:
-              selected === null ? "rgba(0, 0, 0, 0.0)" : "rgba(0, 0, 0, 0.3)",
+          style={{
+            pointerEvents:
+              selected === null && isDisabled === false ? "none" : "auto",
           }}
-          initial={{ backgroundColor: "rgba(0, 0, 0, 0.0)" }}
+          animate={{
+            opacity: selected === null ? 0 : 1,
+          }}
+          initial={{ opacity: 0 }}
         />
         <ul className={styles.appList}>
           {apps.map((app, index) => {
@@ -147,10 +152,7 @@ const Card = forwardRef<unknown, CardProps>(function Card(
       ref={cardRef}
       onClick={() => handleSetSelected(index)}
       animate={index === selected ? "selected" : "initial"}
-      initial={{
-        height: `${START_HEIGHT}px`,
-        backgroundColor: "#ffffff00",
-      }}
+      initial={"initial"}
       variants={cardVariants}
       className={styles.app}
       custom={{ y: offset }}

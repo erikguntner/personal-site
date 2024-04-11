@@ -6,6 +6,17 @@
   padding: 24px;
 }
 
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 2;
+  pointer-events: none;
+}
+
 .cards {
   display: flex;
   flex-direction: column;
@@ -17,20 +28,45 @@
 
 .card {
   position: absolute;
-  border-radius: 16px;
   background-size: cover;
   scrollbar-width: none;
 }
 
 .cover {
   width: 100%;
-  background-color: blueviolet;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  background-image: url("/viking.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.close {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  z-index: 4;
+}
+
+.info {
+  padding: 16px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
 }
 
 .content {
-  padding: 16px;
+  padding: 8px 16px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   background-color: var(--gray-2);

@@ -170,8 +170,12 @@
 }
 
 .project:hover {
-  background-color: var(--blue-2);
+  background-color: var(--gray-3);
   transition: background-color 0.3s ease;
+}
+
+[theme="dark"] .project:hover {
+  background-color: var(--gray-2);
 }
 
 .project:hover svg {

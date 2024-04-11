@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Variants, motion, useScroll, useTransform } from "framer-motion";
+import { Variants, motion } from "framer-motion";
 import {
   PlusIcon,
   DotsHorizontalIcon,

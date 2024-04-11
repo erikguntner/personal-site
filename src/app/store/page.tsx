@@ -136,7 +136,9 @@ const Card = forwardRef<unknown, CardProps>(function Card(
   const [offset, setOffset] = React.useState(0);
 
   useEffect(() => {
+    // @ts-ignore
     if (ref?.current && cardRef.current) {
+      // @ts-ignore
       const rect = ref?.current?.getBoundingClientRect();
       const cardRect = cardRef.current.getBoundingClientRect();
 

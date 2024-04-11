@@ -295,8 +295,9 @@ const useOffset = ({ outerRef, innerRef, deps }: useOffset) => {
   const [offset, setOffset] = React.useState(0);
 
   React.useEffect(() => {
+    // @ts-ignore
     if (outerRef?.current && innerRef.current) {
-      console.log("offseting");
+      // @ts-ignore
       const rect = outerRef?.current?.getBoundingClientRect();
       const cardRect = innerRef.current.getBoundingClientRect();
 

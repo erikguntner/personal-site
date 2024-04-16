@@ -222,14 +222,116 @@
 
 .map {
   width: 100%;
-  aspect-ratio: 2 / 1;
+  height: 200px;
   border-radius: var(--border-radius);
   overflow: hidden;
+  border: 1px solid var(--gray-6);
 }
 
-.map img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: var(--border-radius);
+.map .location {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background-color: var(--gray-2);
+  border: 1px solid var(--gray-6);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 14px;
+}
+
+.map .plane {
+  position: absolute;
+  font-size: 24px;
+  rotate: 225deg;
+  animation: flyPlane 25s infinite linear;
+  animation-delay: 5s;
+}
+
+.plane span {
+  display: block;
+  rotate: z 45deg;
+}
+
+@keyframes flyPlane {
+  0% {
+    transform: translate(-225px, 240px);
+  }
+  50% {
+    transform: translate(150px, 240px);
+  }
+  100% {
+    transform: translate(150px, 240px);
+  }
+}
+
+.map .planeShadow {
+  position: absolute;
+  font-size: 44px;
+  rotate: 225deg;
+  animation: flyShadow 25s infinite linear;
+  animation-delay: 7s;
+  filter: blur(3px);
+  opacity: 0.4;
+}
+
+.planeShadow span {
+  display: block;
+  rotate: z 0deg;
+}
+
+@keyframes flyShadow {
+  0% {
+    transform: translate(-225px, 180px);
+  }
+  50% {
+    transform: translate(150px, 180px);
+  }
+  100% {
+    transform: translate(150px, 180px);
+  }
+}
+
+.pin {
+  height: 32px;
+  width: 32px;
+  background-color: var(--blue-9);
+  border-radius: 50%;
+  border: 3px solid var(--gray-1);
+  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
+}
+
+.pin::before {
+  content: "";
+  position: absolute;
+  height: 32px;
+  width: 32px;
+  top: -2px;
+  left: -2px;
+  background-color: var(--blue-9);
+  opacity: 0.5;
+  border-radius: 50%;
+  animation: scale 5s infinite ease-in-out;
+  transform-origin: center;
+  z-index: -1;
+}
+
+@keyframes scale {
+  0% {
+    opacity: 0.5;
+    transform: scale(0);
+  }
+  40% {
+    opacity: 0;
+    transform: scale(3.5);
+  }
+  99% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(0);
+  }
 }

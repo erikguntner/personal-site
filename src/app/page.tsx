@@ -6,6 +6,13 @@ import styles from "./page.module.css";
 import { Cross1Icon, ExternalLinkIcon } from "@radix-ui/react-icons";
 import { projects } from "./constants";
 
+import Map, { Marker } from "react-map-gl";
+
+import "mapbox-gl/dist/mapbox-gl.css";
+
+const MAPBOX_TOKEN =
+  "pk.eyJ1IjoiZXJpa2d1bnRuZXIiLCJhIjoiY2oyNW5zZ2o1MDAydjMybTV0ZTEwaWJuaSJ9.VXWevkFfyJd_0SnGKa1PSw";
+
 export default function Home() {
   return (
     <main className={styles.main}>
@@ -33,15 +40,31 @@ export default function Home() {
           </p>
 
           <p>Currently located:</p>
-          <figure className={styles.map}>
-            <Image
-              src="/map.png"
-              alt="Los Angeles"
-              width={1280}
-              height={720}
-              priority
-            />
-          </figure>
+          <div className={styles.map}>
+            <Map
+              initialViewState={{
+                latitude: 34.0967,
+                longitude: -117.735,
+                zoom: 12,
+              }}
+              style={{ width: "100%", height: "100%" }}
+              mapStyle="mapbox://styles/erikguntner/clv2najfd00d101pphij7besj"
+              mapboxAccessToken={MAPBOX_TOKEN}
+            >
+              <Marker longitude={-117.7198} latitude={34.0967} color="red">
+                <Pin />
+              </Marker>
+            </Map>
+            <div className={styles.location}>
+              <p>📍 Claremont, CA</p>
+            </div>
+            <div className={styles.plane}>
+              <span>✈️</span>
+            </div>
+            <div className={styles.planeShadow}>
+              <span>✈</span>
+            </div>
+          </div>
         </section>
         <section className={styles.section}>
           <h2>What I use</h2>
@@ -111,4 +134,8 @@ const Cell = () => {
       style={{ backgroundColor: color }}
     ></div>
   );
+};
+
+const Pin = () => {
+  return <div className={styles.pin}></div>;
 };

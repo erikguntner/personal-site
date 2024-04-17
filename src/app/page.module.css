@@ -267,6 +267,7 @@
 .map .planeShadow {
   position: absolute;
   font-size: 44px;
+  color: #000000;
   rotate: 225deg;
   animation: flyShadow 25s infinite linear;
   animation-delay: 7s;
@@ -296,10 +297,13 @@
   width: 32px;
   background-color: var(--blue-9);
   border-radius: 50%;
-  border: 3px solid var(--gray-1);
-  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
-    0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
-    0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
+  border: 3px solid #fdfdfc;
+  box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
 }
 
 .pin::before {

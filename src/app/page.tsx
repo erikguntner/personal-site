@@ -10,9 +10,6 @@ import Map, { Marker } from "react-map-gl";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 
-const MAPBOX_TOKEN =
-  "pk.eyJ1IjoiZXJpa2d1bnRuZXIiLCJhIjoiY2oyNW5zZ2o1MDAydjMybTV0ZTEwaWJuaSJ9.VXWevkFfyJd_0SnGKa1PSw";
-
 export default function Home() {
   return (
     <main className={styles.main}>
@@ -49,9 +46,9 @@ export default function Home() {
               }}
               style={{ width: "100%", height: "100%" }}
               mapStyle="mapbox://styles/erikguntner/clv2najfd00d101pphij7besj"
-              mapboxAccessToken={MAPBOX_TOKEN}
+              mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
             >
-              <Marker longitude={-117.7198} latitude={34.0967} color="red">
+              <Marker longitude={-117.7198} latitude={34.0967}>
                 <Pin />
               </Marker>
             </Map>
